@@ -4,10 +4,10 @@ const app = express();
 
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
+app.use(express.static("public"));//app.use mounts middleware functions at the specified path.
 
 app.get("/", (req, res) => {
-  res.render("index", { weather: null, error: null });
+  res.render("index", { weather, error });
 });
 
 
@@ -19,17 +19,18 @@ app.get("/weather", async(req, res) => {
   const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_key}`;
   
   let weather;
-  const error = null;
+  let error = null;
   try{
-    const response = await axios.get(apiURL);
-    // console.log(response);
-    weather = response.data;
+  const response = await axios.get(apiURL); 
+    weather = await response.data;
     // console.log(weather);
   }catch(error){
-    weather = null
-    error = "error,please try again";
+    weather = null;
+    // const err = error.code;
+    error = "! City name not found !";
+    // console.log(error.code);
   };
-  
+
   res.render("index", { weather, error });
 });
 
