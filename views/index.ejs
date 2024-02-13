@@ -10,11 +10,11 @@
   </head>
   <body>
     <div class="container">
-      <h1>WEATHER API</h1>
+      <div class="card-main">
+        <h1>WEATHER API</h1>
       <form action="/weather" method="get">
         <input type="text" name="city" placeholder="Enter city name" />
         <button type="submit">Get Weather</button>
-      
       </form>
       <% if (error) { %>
         <div class="card">
@@ -42,6 +42,7 @@
         </p>
       </div>
       <% } %>
+      </div>
     </div>
   </body>
 </html>

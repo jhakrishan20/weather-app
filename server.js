@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));//app.use mounts middleware functions at the specified path.
 
 app.get("/", (req, res) => {
-  res.render("index", { weather, error });
+  res.render("index", { weather: null , error: null });
 });
 
 
@@ -15,7 +15,7 @@ app.get("/weather", async(req, res) => {
 
   const city = req.query.city;
   const API_key = "5c30a2d1383edc6e69a716b66ea5c9ae";
-
+  
   const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${API_key}`;
   
   let weather;
@@ -31,7 +31,7 @@ app.get("/weather", async(req, res) => {
     // console.log(error.code);
   };
 
-  res.render("index", { weather, error });
+  res.render("index", {weather: weather , error: error})
 });
 
 const port = process.env.PORT || 5000;
