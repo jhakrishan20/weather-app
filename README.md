@@ -15,6 +15,27 @@ If the name of the city/country is valid and is present in the database the the 
 <br>
 Further I will be adding parameters like AQI , precipitation , chances of rain etc to increase the user experience.
 <br>
+To install dependencies listed in a package.json file for a Node.js project, you typically use the npm or yarn command-line tools. Here's how you can do it:
+
+Using npm:
+Open your terminal or command prompt.
+
+Navigate to the root directory of your Node.js project where the package.json file is located.
+
+Run the following command:
+
+npm install
+This command tells npm to read the package.json file and install all the dependencies listed in the "dependencies" and "devDependencies" sections.
+
+Using yarn:
+Open your terminal or command prompt.
+
+Navigate to the root directory of your Node.js project where the package.json file is located.
+
+Run the following command:
+
+yarn install
+<br>
 Technology stack 
 <br>
 html , css , javascript , node.js , express.js , axios.
